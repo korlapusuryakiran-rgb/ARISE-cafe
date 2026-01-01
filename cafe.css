@@ -147,3 +147,33 @@ li button:hover {
 .logo img:hover {
   transform: rotate(360deg);
 }
+.liveLocationBtn {
+  background-color: black;
+  color: azure;
+  border-radius: 3px;
+}
+.liveLocationBtn:hover {
+  background: white;
+  color: #b60000;
+}
+.whatsappOrder {
+  background-color: greenyellow;
+  border-radius: 3px;
+}
+.whatsappOrder:hover {
+  background-color: green;
+}
+.confirmOrderBtn {
+  background-color: #b60000;
+  border-radius: 3px;
+}
+.confirmOrderBtn:hover {
+  background-color: rgb(255, 123, 0);
+}
+.clearCartbtn {
+  background-color: red;
+  border-radius: 5px;
+}
+.clearCartbtn:hover {
+  background-color: brown;
+}
