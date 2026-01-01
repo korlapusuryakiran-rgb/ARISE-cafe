@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ARISE CAFE</title>
+    <link rel="stylesheet" href="cafe.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+  </head>
+
+  <body>
+    <nav class="overlay-nav">
+      <a href="#HOME" class="logo">
+        <img src="Luffy pdp.jpeg" alt="ARISE CAFE Logo" />
+      </a>
+      <a href="#HOME" class="logo"></a>
+      <a href="#HOME" class="link">HOME</a>
+      <a href="#SERVICES" class="link">SERVICES</a>
+      <a href="#MENU" class="link">MENU</a>
+      <a href="#ITEAMS" class="link">ITEAMS</a>
+      <a href="#ORDER" class="link">ORDERS</a>
+      <a href="#REVIEWS" class="link">REVIEWS</a>
+    </nav>
+    <section id="HOME">
+      <h1>WELCOME TO ARISE CAFE</h1>
+      <p>Best cafe in the town with delicious food and beverages.</p>
+    </section>
+    <section id="SERVICES" class="section">
+      <h2>OUR SERVICES</h2>
+      <p>Enjoy a variety of services at ARISE CAFE.</p>
+      <div class="cards">
+        <div class="card">
+          <a href="#MENU" class="Dine-In">Dine-In</a>
+          <p>Drinks:-coffes,milkeshakes,juices</p>
+          <p>Food:-pastries,cookies,snakes</p>
+          <style>
+            .Dine-In {
+              background-color: rgb(247, 164, 82);
+              color: white;
+              padding: 9px;
+              border-radius: 5px;
+              text-decoration: none;
+            }
+          </style>
+          <p>Relax and enjoy your meal in our cozy cafe.</p>
+          <p>Experience our cozy atmosphere and friendly service.</p>
+        </div>
+      </div>
+      <br />
+      <div class="cards">
+        <div class="Takeaway-card">
+          <div class="item">
+            <a href="#MENU" class="Takeaway">Takeaway </a>
+            <style>
+              .Takeaway {
+                background-color: rgb(247, 164, 82);
+                color: white;
+                padding: 10px;
+                border-radius: 5px;
+                text-decoration: none;
+              }
+            </style>
+            <p>Order your favorite items to go.</p>
+            <p>Convenient and quick service for busy customers.</p>
+          </div>
+          <div class="item-links">
+            <p>Drinks:-coffes,milkeshakes,juices</p>
+            <p>Food:-pastries,cookies,snakes</p>
+
+            <style>
+              .Takeaway-link {
+                background-color: rgb(247, 164, 82);
+                color: white;
+                padding: 10px;
+                border-radius: 5px;
+                text-decoration: none;
+              }
+            </style>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="MENU" class="MENU">
+      <h2>OUR MENU</h2>
+      <div class="cards">
+        <div class="card">
+          <section id="Drinks">
+            <h1>FOOD & Bravages</h1>
+            <p>Freshly brewed coffee made from premium beans.</p>
+            <h1>coffees</h1>
+            <ul>
+              <li data-name="Espresso" data-price="250">
+                Espresso - $250
+                <button class="addbtn">Add</button>
+              </li>
+              <li data-name="Latte" data-price="120">
+                Latte - $120
+                <button class="addbtn">Add</button>
+              </li>
+              <li data-name="Americano" data-price="90">
+                Americano - $90 <button class="addbtn">Add</button>
+              </li>
+              <li data-name="Blackcoffee" data-price="75">
+                Blackcoffee - $75 <button class="addbtn">Add</button>
+              </li>
+              <li data-name="Picco Cappuccino" data-price="130">
+                Picco Cappuccino - $130 <button class="addbtn">Add</button>
+              </li>
+              <li data-name="Classic Hot Coffee" data-price="85">
+                Classic Hot Coffee - $85 <button class="addbtn">Add</button>
+              </li>
+            </ul>
+          </section>
+        </div>
+        <div class="card">
+          <section>
+            <h1>Food</h1>
+            <ul>
+              <li data-name="Choco kunafa pastry" data-price="80">
+                Choco kunafa pastry - $80
+
+                <button class="addbtn">Add</button>
+              </li>
+
+              <li data-name="Brioche French Toast" data-price="100">
+                Brioche French Toast - $100 <button class="addbtn">Add</button>
+              </li>
+              <li data-name="Chocolate Croissant" data-price="60">
+                Chocolate Croissant - $60 <button class="addbtn">Add</button>
+              </li>
+              <li data-name="Chicken Salad Sandwich" data-price="120">
+                Chicken Salad Sandwich - $120
+                <button class="addbtn">Add</button>
+              </li>
+              <li data-name="Veggie Wrap" data-price="90">
+                Veggie Wrap - $90 <button class="addbtn">Add</button>
+              </li>
+              <li data-name="Ham and Cheese Panini" data-price="110">
+                Ham and Cheese Panini - $110<button class="addbtn">Add</button>
+              </li>
+              <li data-name="Cheese Peri Peri Pop Fries" data-price="85">
+                Cheese Peri Peri Pop Fries - $85<button class="addbtn">
+                  Add
+                </button>
+              </li>
+            </ul>
+
+            <a href="#ORDER" class="Takeaway-link">Place Takeaway Order</a>
+            <style>
+              .Takeaway-link {
+                background-color: rgb(247, 164, 82);
+                color: white;
+                border-radius: 5px;
+              }
+            </style>
+          </section>
+        </div>
+      </div>
+    </section>
+    <section id="ITEAMS" class="section">
+      <h2>POPULAR ITEAMS</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Espresso</h3>
+
+          <p>Strong and bold coffee shot.</p>
+        </div>
+        <div class="card">
+          <h3>Latte</h3>
+          <p>Creamy coffee with steamed milk.</p>
+        </div>
+        <div class="card">
+          <h3>Cappuccino</h3>
+          <p>Espresso with frothy milk foam.</p>
+        </div>
+        <div class="card">
+          <h3>Americano</h3>
+          <p>Espresso diluted with hot water.</p>
+        </div>
+        <div class="card">
+          <h3>Chocolate Croissant</h3>
+          <p>Flaky pastry filled with rich chocolate.</p>
+        </div>
+        <div class="card">
+          <h3>Cheese Peri Peri Pop Fries</h3>
+          <p>Crispy fries topped with cheese and peri peri sauce.</p>
+        </div>
+        <div class="card">
+          <h3>Chicken Salad Sandwich</h3>
+          <p>Fresh chicken salad in a soft sandwich.</p>
+        </div>
+        <div class="card">
+          <h3>Brioche French Toast</h3>
+          <p>Sweet and fluffy French toast made with brioche bread.</p>
+        </div>
+        <div class="card">
+          <h3>Choco Kunafa Pastry</h3>
+          <p>Delicious pastry with chocolate and kunafa flavors.</p>
+        </div>
+        <div class="card">
+          <h3>Veggie Wrap</h3>
+          <p>Healthy wrap filled with fresh vegetables.</p>
+        </div>
+        <div class="card">
+          <h3>Ham and Cheese Panini</h3>
+          <p>Grilled panini with ham and melted cheese.</p>
+        </div>
+        <div class="card">
+          <h3>Classic Hot Coffee</h3>
+          <p>Traditional hot brewed coffee.</p>
+        </div>
+        <div class="card">
+          <h3>Picco Cappuccino</h3>
+          <p>Special cappuccino with a unique twist.</p>
+        </div>
+        <div class="card">
+          <h3>Choco Kunafa Pastry</h3>
+          <p>Delicious pastry with chocolate and kunafa flavors.</p>
+        </div>
+        <div class="card">
+          <h3>Brioche French Toast</h3>
+          <p>Sweet and fluffy French toast made with brioche bread.</p>
+        </div>
+        <div class="card">
+          <h3>Chocolate Croissant</h3>
+          <p>Flaky pastry filled with rich chocolate.</p>
+        </div>
+        <div class="card">
+          <h3>Food Items</h3>
+          <p>Delicious food items available daily.</p>
+        </div>
+      </div>
+    </section>
+    <section id="ORDER" class="ORDER">PLACE YOUR ORDER</section>
+    <section id="CART" class="section">
+      <h2>your Cart</h2>
+      <div id="cartItems"></div>
+      <div class="total">Total: ₹<span id="cartTotal">0</span></div>
+      <button id="clearCart">clearcart</button>
+      <h3>Select Your Payment Method</h3>
+      <lable><input type="radio" name="payment" value="UPI" /> UPI</lable>
+      <lable
+        ><input type="radio" name="payment" value="cod" />Cash On
+        Delivery</lable
+      >
+      <div id="addressSection" style="display: none; margin-top: 20px">
+        <h3>Delivery Location</h3>
+
+        <button id="liveLocationBtn" type="button">Use My Live Location</button>
+        <div id="map"></div>
+        <p id="locationText"></p>
+      </div>
+      <button type="button" id="confirmOrderBtn">Conform Order</button>
+
+      <button type="button" id="whatsappOrder">Via Oder WhatsApp</button>
+    </section>
+    <section id="REVIEWS" class="section">
+      <h2>CUSTOMER REVIEWS</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>KOUSHIK</h3>
+          <p>Amazing coffee and friendly staff!</p>
+        </div>
+        <div class="card">
+          <h3>RUDER</h3>
+          <p>The pastries are to die for!</p>
+        </div>
+      </div>
+    </section>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="cafe.js"></script>
+  </body>
+</html>

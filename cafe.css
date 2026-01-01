@@ -1,0 +1,149 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 15px;
+  padding: 15px 10px;
+  background-color: azure;
+}
+h1 {
+  text-align: center;
+  color: brown;
+  font-family: cursive;
+  font-size: x-large;
+}
+nav a {
+  margin: 15px;
+  padding: 15px;
+  text-decoration: none;
+  color: rgba(255, 0, 0, 0.8);
+  font-weight: bold;
+  font-size: large;
+}
+nav a:hover {
+  color: red;
+  text-decoration: line-through;
+}
+section {
+  margin: auto;
+  padding: 15px;
+  border: 1px solid brown;
+}
+section h2 {
+  text-align: center;
+  color: rgb(250, 98, 90);
+  font-family: cursive;
+  font-size: x-large;
+}
+p {
+  text-align: justify;
+  font-size: medium;
+  color: rgb(184, 10, 10);
+  margin-bottom: 10px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.cards {
+  background-color: whitesmoke;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px;
+  padding: 15px;
+  text-align: center;
+  border: 1px solid pink;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 350px;
+  margin: auto;
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px;
+}
+
+form label {
+  display: flex;
+  justify-content: space-between;
+}
+
+form input,
+form select,
+form button {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #040303;
+}
+
+form button {
+  background: #f03030;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+form button:hover {
+  background: white;
+  color: #b60000;
+}
+.overlay-nav {
+  background-color: rgb(247, 164, 82);
+  border-radius: 10px 10px 0 0;
+  padding: 20px;
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
+}
+li {
+  list-style: none;
+  margin: 8px 0;
+}
+li button {
+  margin-left: 15px;
+  padding: 5px 10px;
+  border: none;
+  background-color: brown;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+li:hover {
+  color: brown;
+  cursor: pointer;
+}
+li button:hover {
+  background-color: darkred;
+}
+.addbtn {
+  margin-top: 10px;
+  padding: 10px;
+
+  background-color: brown;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.addbtn:hover {
+  background-color: darkred;
+}
+#cart-items button {
+  max-height: 200px;
+  overflow-y: auto;
+}
+#map {
+  height: 300px;
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 10px;
+  border: 2px solid brown;
+}
+.logo img {
+  height: 50px;
+  width: auto;
+  box-shadow: 0 0 9px rgba(255, 0, 0, 0.8);
+  transition: transform 1s;
+  border-radius: 25px;
+}
+.logo img:hover {
+  transform: rotate(360deg);
+}
