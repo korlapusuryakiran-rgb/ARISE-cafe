@@ -49,28 +49,31 @@ function renderCart() {
 }
 
 // ================= CART ACTIONS =================
-function addToCart(name, price) {
-  const item = cart.find((i) => i.name === name);
+function menuPlus(name, price, img) {
+  addToCart(name, price, img);
+  updateMenuQty(name);
+}
 
-  if (item) item.qty++;
-  else cart.push({ name, price, qty: 1 });
+function menuMinus(name) {
+  const index = cart.findIndex(i => i.name === name);
+  if (index === -1) return;
+
+  cart[index].qty--;
+  if (cart[index].qty <= 0) cart.splice(index, 1);
 
   saveCart();
   renderCart();
+  updateMenuQty(name);
 }
 
-function changeQty(i, d) {
-  cart[i].qty += d;
-  if (cart[i].qty <= 0) cart.splice(i, 1);
-  saveCart();
-  renderCart();
+function updateMenuQty(name) {
+  const qtySpan = document.getElementById(`qty-${name}`);
+  if (!qtySpan) return;
+
+  const item = cart.find(i => i.name === name);
+  qtySpan.innerText = item ? item.qty : 0;
 }
 
-function removeItem(i) {
-  cart.splice(i, 1);
-  saveCart();
-  renderCart();
-}
 
 // ================= CLEAR CART =================
 if (clearCartBtn) {
@@ -223,3 +226,6 @@ function changeQtyByName(name, delta) {
     renderCart();
   }
 }  
+renderCart();
+cart.forEach(item => updateMenuQty(item.name));
+
