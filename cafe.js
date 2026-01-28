@@ -1,147 +1,3 @@
-// ================= CART STATE =================
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-// ================= DOM =================
-const cartDiv = document.getElementById("cartItems");
-const cartTotal = document.getElementById("cartTotal");
-const clearCartBtn = document.getElementById("clearCart");
-const whatsappBtn = document.getElementById("whatsappOrder");
-
-// ================= HELPERS =================
-function saveCart() {
-  localStorage.setItem("cart", JSON.stringify(cart));
-}
-
-function findItem(name) {
-  return cart.find((i) => i.name === name);
-}
-
-// ================= RENDER CART =================
-function renderCart() {
-  cartDiv.innerHTML = "";
-  let total = 0;
-
-  if (cart.length === 0) {
-    cartDiv.innerHTML = "<p>Your cart is empty</p>";
-    cartTotal.innerText = "0";
-    return;
-  }
-
-  cart.forEach((item, index) => {
-    total += item.price * item.qty;
-
-    cartDiv.innerHTML += `
-      <div style="margin-bottom:12px">
-        <img src="${item.img || ""}" style="
-          width:55px;height:55px;
-          object-fit:cover;
-          border-radius:8px;
-          border:2px solid brown;
-        ">
-        <br>
-        <strong>${item.name}</strong><br>
-        ₹${item.price} × ${item.qty}<br>
-        <button onclick="updateQty(${index},1)">+</button>
-        <button onclick="updateQty(${index},-1)">-</button>
-        <button onclick="removeItem(${index})">Remove</button>
-      </div>
-    `;
-  });
-
-  cartTotal.innerText = total;
-}
-
-// ================= CART ACTIONS =================
-function addToCart(name, price, img) {
-  const item = findItem(name);
-
-  if (item) item.qty++;
-  else cart.push({ name, price, img, qty: 1 });
-
-  saveCart();
-  renderCart();
-}
-
-function updateQty(index, delta) {
-  cart[index].qty += delta;
-  if (cart[index].qty <= 0) cart.splice(index, 1);
-  saveCart();
-  renderCart();
-}
-
-function removeItem(index) {
-  cart.splice(index, 1);
-  saveCart();
-  renderCart();
-}
-
-// ================= MENU + / - =================
-document.addEventListener("click", (e) => {
-  if (
-    !e.target.classList.contains("plus") &&
-    !e.target.classList.contains("minus")
-  )
-    return;
-
-  const menuItem = e.target.closest(".menu-item");
-  if (!menuItem) return;
-
-  const qtySpan = menuItem.querySelector(".qty");
-  let qty = Number(qtySpan.innerText);
-
-  const name = menuItem.dataset.name;
-  const price = Number(menuItem.dataset.price);
-  const img = menuItem.dataset.img || "";
-
-  if (e.target.classList.contains("plus")) {
-    qty++;
-    qtySpan.innerText = qty;
-    addToCart(name, price, img);
-  }
-
-  if (e.target.classList.contains("minus") && qty > 0) {
-    qty--;
-    qtySpan.innerText = qty;
-
-    const item = findItem(name);
-    if (item) {
-      item.qty--;
-      if (item.qty <= 0) {
-        cart = cart.filter((i) => i.name !== name);
-      }
-      saveCart();
-      renderCart();
-    }
-  }
-});
-
-// ================= CLEAR CART =================
-if (clearCartBtn) {
-  clearCartBtn.addEventListener("click", () => {
-    cart = [];
-    localStorage.removeItem("cart");
-    renderCart();
-    document.querySelectorAll(".qty").forEach((q) => (q.innerText = "0"));
-  });
-}
-
-// ================= WHATSAPP =================
-if (whatsappBtn) {
-  whatsappBtn.addEventListener("click", () => {
-    if (cart.length === 0) return alert("Cart is empty!");
-
-    let msg = "Order Details:%0A";
-    cart.forEach((i) => {
-      msg += `- ${i.name} x${i.qty} = ₹${i.price * i.qty}%0A`;
-    });
-
-    msg += `Total: ₹${cartTotal.innerText}`;
-    window.open(`https://wa.me/1234567890?text=${msg}`, "_blank");
-  });
-}
-
-// ================= INIT =================
-renderCart();
 // ================= CART SETUP =================
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -334,7 +190,7 @@ document.querySelectorAll(".img-box img").forEach((img) => {
     });
   }
 });
-document.querySelectorAll(".swiggy-item").forEach((item) => {
+document.querySelectorAll(".menu-item").forEach((item) => {
   const plus = item.querySelector(".plus");
   const minus = item.querySelector(".minus");
   const qtySpan = item.querySelector(".qty");
@@ -366,5 +222,4 @@ function changeQtyByName(name, delta) {
     saveCart();
     renderCart();
   }
-}
-
+}  
