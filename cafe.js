@@ -26,7 +26,16 @@ function renderCart() {
     total += item.price * item.qty;
 
     cartDiv.innerHTML += `
-      <div style="margin-bottom:10px">
+      <div style="margin-bottom:10px",>
+      <img src="${item.img}" style="
+  width:55px;
+  height:55px;
+  object-fit:cover;
+  border-radius:10px;
+  border:2px solid brown;
+"><br>
+<strong>${item.name}</strong><br>
+
         <strong>${item.name}</strong><br>
         ₹${item.price} × ${item.qty}<br>
         <button onclick="changeQty(${index},1)">+</button>
@@ -128,7 +137,7 @@ function setLocation(lat, lng) {
   else marker = L.marker([lat, lng]).addTo(map);
 
   document.getElementById("locationText").innerText = `📍 ${lat.toFixed(
-    5
+    5,
   )}, ${lng.toFixed(5)}`;
 }
 
@@ -162,8 +171,55 @@ document.getElementById("confirmOrderBtn").addEventListener("click", () => {
 renderCart();
 
 // ================= ADD BUTTONS =================
-document.querySelectorAll("li[data-name]").forEach((li) => {
-  li.querySelector(".addbtn")?.addEventListener("click", () => {
-    addToCart(li.dataset.name, Number(li.dataset.price));
+function addToCart(name, price, img) {
+  const item = cart.find((i) => i.name === name);
+
+  if (item) item.qty++;
+  else cart.push({ name, price, img, qty: 1 });
+
+  saveCart();
+  renderCart();
+}
+// ===== IMAGE LOAD EFFECT =====
+document.querySelectorAll(".img-box img").forEach((img) => {
+  if (img.complete) {
+    img.classList.add("loaded");
+  } else {
+    img.addEventListener("load", () => {
+      img.classList.add("loaded");
+    });
+  }
+});
+document.querySelectorAll(".swiggy-item").forEach((item) => {
+  const plus = item.querySelector(".plus");
+  const minus = item.querySelector(".minus");
+  const qtySpan = item.querySelector(".qty");
+
+  let qty = 0;
+
+  plus.addEventListener("click", () => {
+    qty++;
+    qtySpan.innerText = qty;
+
+    addToCart(item.dataset.name, Number(item.dataset.price), item.dataset.img);
+  });
+
+  minus.addEventListener("click", () => {
+    if (qty > 0) {
+      qty--;
+      qtySpan.innerText = qty;
+      changeQtyByName(item.dataset.name, -1);
+    }
   });
 });
+
+// helper
+function changeQtyByName(name, delta) {
+  const index = cart.findIndex((i) => i.name === name);
+  if (index !== -1) {
+    cart[index].qty += delta;
+    if (cart[index].qty <= 0) cart.splice(index, 1);
+    saveCart();
+    renderCart();
+  }
+}
