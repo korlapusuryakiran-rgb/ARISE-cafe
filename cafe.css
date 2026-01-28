@@ -177,3 +177,120 @@ li button:hover {
 .clearCartbtn:hover {
   background-color: brown;
 }
+.img-box {
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 2px solid brown;
+  position: relative;
+}
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease;
+  filter: blur(5px);
+}
+.img-box img.loaded {
+  filter: blur(0);
+}
+.menu-item:hover .img-box img {
+  transform: scale(1.12);
+}
+.menu-item {
+  display: flex;
+  gap: 15px;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin: 18px;
+}
+.menu-img {
+  width: 90px;
+  height: 90px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.menu-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.menu-detail h4 {
+  flex: 1;
+}
+.title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.title-row h4 {
+  margin: 0;
+  font-size: 15px;
+  color: #1c1c1c;
+}
+.veg {
+  width: 15px;
+  height: 15px;
+  border: 1.5px solid #1c1c1c;
+  border-radius: 50%;
+  display: inline-block;
+}
+.veg-nonveg.veg {
+  background: green;
+}
+.veg-nonveg.nonveg {
+  background: red;
+}
+.rating {
+  margin: 10px;
+  font-size: 15px;
+  color: #777;
+}
+.bestseller {
+  background: orange;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+.menu-details p {
+font-size: 15px;
+color: #555;
+margin: 10px;
+}
+.price-action{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+}
+.qty-box{
+  display: flex;
+  align-items: center;
+  border: 1px solid brown;
+  border-radius: 5px;
+  overflow: hidden;
+  gap: 10px;
+}
+.qty-box button{
+  background-color: brown;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.qty-box button:hover{
+  background-color: darkred;
+
+}
+.qty-box span{
+  padding: 0 10px;
+  font-size: 15px;
+  color: #1c1c1c;
+}
