@@ -273,16 +273,22 @@ margin: 10px;
 .qty-box{
   display: flex;
   align-items: center;
-  border: 1px solid brown;
+  gap: 3px;
+  border: 1px solid #ccc;
+  border-radius: 5px; 
+  padding: 5px;
+  margin: 9px;
   border-radius: 5px;
   overflow: hidden;
-  gap: 10px;
+  
+ 
+  
 }
 .qty-box button{
   background-color: brown;
   color: white;
   border: none;
-  padding: 5px 10px;
+  padding:5px 10px;
   cursor: pointer;
 }
 .qty-box button:hover{
