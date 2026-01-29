@@ -1,47 +1,90 @@
-const amount = localStorage.getItem("upiAmount");
-const cart = JSON.parse(localStorage.getItem("upiCart"));
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>UPI Payment - ARISE CAFE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-if (!amount || !cart) {
-  alert("Invalid payment session");
-  window.location.href = "index.html";
-}
+    <style>
+      body {
+        font-family: Arial;
+        text-align: center;
+        background: #fff7f0;
+        padding: 30px;
+      }
 
-document.getElementById("amount").innerText = amount;
+      h2,
+      h3 {
+        color: brown;
+      }
 
-// ================= CREATE UPI QR =================
-const upiId = "yourupi@bank"; // change this
-const name = "ARISE CAFE";
+      img {
+        width: 260px;
+        border: 3px solid brown;
+        padding: 10px;
+        margin: 20px 0;
+      }
 
-const upiURL = `upi://pay?pa=${upiId}&pn=${name}&am=${amount}&cu=INR`;
+      input,
+      button {
+        padding: 10px;
+        width: 240px;
+        margin-top: 10px;
+        font-size: 16px;
+      }
 
-document.getElementById("qr").src =
-  "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" +
-  encodeURIComponent(upiURL);
+      button {
+        background: brown;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
 
-// ================= OTP =================
-let otp = null;
+      button:hover {
+        background: darkred;
+      }
 
-function generateOTP() {
-  otp = Math.floor(100000 + Math.random() * 900000);
-  alert("🔐 OTP (demo): " + otp);
-}
+      .pay-options button {
+        margin: 10px;
+      }
 
-// generate OTP AFTER QR loads
-setTimeout(generateOTP, 1000);
+      .section {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
 
-function verifyOTP() {
-  const entered = document.getElementById("otpInput").value;
+  <body>
+    <h2>UPI Payment - ARISE CAFE</h2>
 
-  if (entered == otp) {
-    alert("✅ Payment Successful!");
+    <p>
+      Total Amount: ₹<strong><span id="amount"></span></strong>
+    </p>
 
-    localStorage.removeItem("cart");
-    localStorage.removeItem("upiCart");
-    localStorage.removeItem("upiAmount");
-    localStorage.removeItem("cartTime");
+    <div class="pay-options">
+      <button onclick="showQR()">Pay via QR Code</button>
+      <button onclick="showPhone()">Pay via Phone Number</button>
+    </div>
 
-    window.location.href = "index.html";
-  } else {
-    alert("❌ Invalid OTP");
-  }
-}
+    <div id="qrSection" class="section" style="display: none">
+      <h3>Scan & Pay</h3>
+      <img id="qr" alt="UPI QR Code" />
+    </div>
+
+    <div id="phoneSection" class="section" style="display: none">
+      <h3>Pay via UPI ID / Phone</h3>
+      <p id="upiText"></p>
+      <button onclick="openUPIApp()">Open UPI App</button>
+    </div>
+
+    <div class="section">
+      <h3>Enter OTP</h3>
+      <input type="number" id="otpInput" placeholder="Enter OTP" />
+      <br />
+      <button onclick="verifyOTP()">Confirm Payment</button>
+    </div>
+
+    <script src="payment.js"></script>
+  </body>
+</html>
