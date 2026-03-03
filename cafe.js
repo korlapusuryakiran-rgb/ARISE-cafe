@@ -51,7 +51,7 @@
       name: "Brownie",
       price: 110,
       category: "food",
-      image: "brownie.jpg",
+      image: "Brownie.jpg",
     },
     {
       id: 8,
@@ -86,7 +86,7 @@
       name: "Greek Veggie Cottage Cheese Wrap",
       price: 80,
       category: "food",
-      image: "greek veggie cottage cheese wrap.jpg",
+      image: "Greek Veggie Cottage Cheese Wrap.jpg",
     },
     {
       id: 13,
@@ -515,3 +515,4 @@
       toggleCart();
   });
 })();
+
