@@ -1,5 +1,5 @@
 (function () {
-  const WHATSAPP_NUMBER = "919876543210";
+  const WHATSAPP_NUMBER = "918125311552";
   const UPI_ID = "arisecafe@okhdfcbank";
   const MERCHANT_NAME = "Arise Cafe";
 
@@ -515,4 +515,5 @@
       toggleCart();
   });
 })();
+
 
